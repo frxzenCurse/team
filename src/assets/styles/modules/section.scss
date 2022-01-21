@@ -1,0 +1,29 @@
+.section {
+  --padding: 60px;
+  @media (min-width: $breakpoint) {
+    --padding: 140px;
+  }
+  padding-top: var(--padding);
+
+  &--bot {
+    padding-bottom: var(--padding);
+  }
+
+  &--first {
+    padding-top: 144px;
+    @media (min-width: $breakpoint) {
+      padding-top: 289px;
+    }
+  }
+
+  &--black {
+    background: var(--color-primary);
+  }
+
+  &__block {
+    margin-top: 24px;
+    @media (min-width: $breakpoint) {
+      margin-top: 80px;
+    }
+  }
+}

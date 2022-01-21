@@ -2,24 +2,18 @@
 
 $fs: 16px;
 
-// $ff-main: 'DMSans', sans-serif;
-// $ff-2: 'Agoka', sans-serif;
-// $ff-3: 'BonVivant', sans-serif;
+$ff-main: 'SuisseIntl', sans-serif;
+$ff-alt: 'RobotoMono', sans-serif;
 
-// @mixin f-main($font-weight: 400) {
-//   font-weight: $font-weight;
-//   font-family: $ff-main;
-// }
+@mixin f-main($font-weight: 400) {
+  font-weight: $font-weight;
+  font-family: $ff-main;
+}
 
-// @mixin f-2($font-weight: 400) {
-//   font-weight: $font-weight;
-//   font-family: $ff-2;
-// }
-
-// @mixin f-3($font-weight: 400) {
-//   font-weight: $font-weight;
-//   font-family: $ff-3;
-// }
+@mixin f-alt($font-weight: 500) {
+  font-weight: $font-weight;
+  font-family: $ff-alt;
+}
 
 @mixin fsl($font-size, $line-height: null) {
   font-size: unquote('#{$font-size / $fs}rem');
@@ -39,17 +33,12 @@ $breakpoint-xl: 1680px;
 $breakpoint-xxl: 1920px;
 
 // color vars
-$color-black: #292929;
-$color-white: #fff;
-$color-blue: #5DD7FF;
-$color-light-blue: #97DFF8;
-$color-beige: #F6DABE;
-$color-aqua: #E0F7FF;
-$color-brown: #E8BE94;
-$color-gray: #969696;
-$color-light-gray: #E7E7E7;
-$color-azure: #0CB9F2;
-$color-red: #FF3950;
+:root {
+  --color-primary: #0E1010;
+  --color-secondary: #D8F3F5;
+  --color-bg: #BDE4E7;
+  --color-gray: #232727;
+}
 
 $transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
 $transition-duration: .5s;
@@ -60,8 +49,8 @@ $transition: $transition-duration $transition-timing-function;
 $col-count-m: 4;
 $col-count-d: 12;
 
-$col-pad-m: 20px;
-$col-pad-d: 60px;
+$col-pad-m: 16px;
+$col-pad-d: 32px;
 
 $col-gap-m: 20px;
 $col-gap-d: 40px;

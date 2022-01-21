@@ -1,3 +1,25 @@
 mixin header 
   header.header 
-    |header
+    .header__inner
+      .header__row 
+        .header__col
+          .header__logo
+            a.header__logo-link(href="#")
+              +logo-svg.header__svg 
+          .header__phone
+            a.header__phone-link(href="tel:8 958 581-50-84") 
+              |8 958 581-50-84
+          nav.header__nav 
+            .header__nav-button 
+              |Меню
+            ul.header__list 
+              each item in ['О нас', 'Компетенции', 'Стоимость', 'Команда', 'FAQ', 'Процесс', 'Отзывы и клиенты',]
+                li.header__item 
+                  a.header__link(href="#")
+                    |#{item}
+        .header__col
+          .header__button
+            |Обсудить проект
+          .header__menu 
+            span.header__menu-span
+            span.header__menu-span

@@ -22,9 +22,10 @@ html {
 }
 
 body {
-  // @include f-main();
-  color: $color-black;
-  @include fsl(20px, 130%);
+  @include f-main();
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  @include fsl(14px, 140%);
 }
 
 img {
@@ -38,7 +39,7 @@ ol {
 }
 
 a {
-  color: $color-black;
+  color: var(--color-primary);
   text-decoration: none;
 }
 

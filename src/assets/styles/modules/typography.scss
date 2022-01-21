@@ -1,0 +1,29 @@
+.title {
+  @include fsl(28px, 120%);
+  @media (min-width: $breakpoint) {
+    @include fsl(60px);
+  }
+
+  &--light {
+    color: var(--color-secondary);
+  }
+}
+
+.label {
+  @media (min-width: $breakpoint) {
+    margin-bottom: 10px;
+  }
+  
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  @include f-alt;
+  text-transform: uppercase;
+  @include fsl(10px, 140%);
+  @media (min-width: $breakpoint) {
+    @include fsl(12px);
+  }
+
+  &--light {
+    color: var(--color-secondary);
+  }
+}
