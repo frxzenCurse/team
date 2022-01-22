@@ -2,12 +2,315 @@ extends ../layouts/master.pug
 
 
 block content 
+  -
+    var ddata = {
+      technology: [
+        {
+          num: 01,
+          title: 'PHP',
+          text: 'Yii2, Symfony, Laravel, Zend, Phalcon, 1C-битрикс, Wordpress',
+        },
+        {
+          num: 04,
+          title: 'DevOps',
+          text: 'Настройка и поддержка серверов на Lunix / TICK',
+        },
+        {
+          num: 02,
+          title: 'JavaScript',
+          text: 'React, Angular, Vue',
+        },
+        {
+          num: 05,
+          title: 'Python',
+          text: 'Django',
+        },
+        {
+          num: 03,
+          title: 'Тестирование',
+          text: 'Ручное и автоматизированное тестирование API',
+        },
+        {
+          num: 06,
+          title: 'Mobile',
+          text: 'React Native, Ionic',
+        },
+      ],
+      services: ['Недостаточно экспертизы для работы над проектом или просто недостаточно специалистов сейчас', 'Понимаете, что аутсорс-команда выгоднее чем собственный отдел разработки', 'Вы крупный/средний бизнес или стартап', 'Есть желание ускорить процесс разработки', 'Пока не готовы развивать свой отдел разработки', 'Просто нет времени'],
+      specialization: {
+        first: ['Красота и здоровье', 'Банки и финансы', 'E-commerce', 'Одежда и мода', 'Еда'],
+        second: ['Стартапы', 'Сервисы', 'Дизайн системы', 'Админки и дэшборды', 'Еда'],
+      },
+      faq: ['Сколько человек работает в вашей компании?', 'На каких языках возможно общение с командой?', 'Предоставляете ли гарантию на свою работу?', 'Какой график работы команды?', 'Предоставляется ли подменный специалист на случайболезни или отпуска?']
+    }
   section.section.section--first.section--black 
+    .container 
+      .hero 
+        .hero__title.hero__inner 
+          |Надежная команда #[br] 
+          .hero__italic [Битрикс/Laravel] #[br] разработчиков на ваш проект
+        .hero__button.hero__inner 
+          a.button(href="#")
+            |Узнать цену
+        .hero__container 
+          img.hero__img(src="assets/images/hero.jpg", alt="")
+          +hero-svg.hero__svg
+  section.section.section--black 
+    .container 
+      .row.row--default
+        .row__col
+          .label.label--light 
+            |[ключевые #[br] технологии]
+        .row__col
+          .technology
+            .technology__grid 
+              each item in ddata.technology
+                .technology__item
+                  .technology__row
+                    .technology__col
+                      .technology__num
+                        |0#{item.num}
+                    .technology__col
+                      h2.technology__title 
+                        |#{item.title}
+                      p.technology__text 
+                        |#{item.text}
+  section.section.section--black.section--bot 
     .container 
       .row 
         .row__col
-          .label.label--light
-            |[qqq]  
+          .label.label--light 
+            |[В чем поможем]
         .row__col
-          .title.title--light
-            |WWWW  
+          h1.title.title--light
+            |мы вам нужны, если:
+      .section__block 
+        .row 
+          .row__col
+          .row__col
+            .services
+              .services__grid 
+                each item in ddata.services
+                  .services__item 
+                    .services__icon 
+                      +plus-svg.services__svg
+                    p.services__text
+                      |#{item}
+  section.section
+    .container 
+      .row
+        .row__col
+          .label 
+            |[особенности]
+        .row__col
+          .title 
+            |с нами удобно
+      .section__block
+        .features 
+          .features__item 
+            .features__container 
+              .features__icon 
+                +features-1-svg.features__svg
+              .features__content 
+                h2.features__title
+                  |{Скорость}
+                p.features__text 
+                  |Выведем команду на ваш проект в течении 3-х рабочих дней
+          .features__item 
+            .features__container 
+              .features__icon 
+                +features-2-svg.features__svg
+              .features__content 
+                h2.features__title
+                  |{Гибкость}
+                p.features__text 
+                  |Предоставим подменного специалиста на случай отпуска или болезни кого-то из команды
+          .features__item 
+            .features__container 
+              .features__icon 
+                +features-3-svg.features__svg
+              .features__content 
+                h2.features__title
+                  |{Стоимость}
+                p.features__text 
+                  |Уменьшим стоимость часа работы в зависимости от количества выработанных часов
+          .features__item 
+            .features__container 
+              .features__icon 
+                +features-4-svg.features__svg
+              .features__content 
+                h2.features__title
+                  |{Команда}
+                p.features__text 
+                  |Соберем команду разработчиков уровня мидл и выше
+  section.section.section--bot 
+    .container
+      .row
+        .row__col
+          .label 
+            |[компетенции]
+        .row__col
+          .title 
+            |наша специализация
+      .specialization
+        .section__block
+          .row 
+            .row__col
+            .row__col
+              .specialization__row 
+                .specialization__col
+                  ul.specialization__list
+                    each item in ddata.specialization.first 
+                      li.specialization__item 
+                        |#{item}
+                .specialization__col
+                  ul.specialization__list
+                    each item in ddata.specialization.second 
+                      li.specialization__item 
+                        |#{item}
+        .section__block
+          .specialization__bot
+            .label
+              |[ А так же готовы осваивать #[br] новые для нас сферы ]
+  section.section.section--black.section--bot 
+    .container 
+      .row 
+        .row__col
+          .label.label--light 
+            |[тарифЫ]
+        .row__col
+          .title.title--light 
+            |выберите формат работы
+      .section__block 
+        .row 
+          .row__col
+          .row__col
+            .rates 
+              .rates__card
+                .rates__icon 
+                  +rates-1-svg.rates__svg
+                .rates__tariff 
+                  .rates__item 
+                    h2.rates__title
+                      |60+
+                    p.rates__text 
+                      |часов в месяц
+                  .rates__item 
+                    h2.rates__title
+                      |1–3
+                    p.rates__text 
+                      |человек в команде
+                .rates__container 
+                  .rates__price 
+                    .rates__left 
+                      |от
+                    .rates__num 
+                      |1700
+                    .rates__right 
+                      |₽/час
+                .rates__bottom 
+                  .rates__description 
+                    |первые 10 часов — 700₽/час
+              .rates__card.rates__card--light
+                .rates__icon 
+                  +rates-2-svg.rates__svg
+                .rates__tariff 
+                  .rates__item 
+                    h2.rates__title
+                      |200+
+                    p.rates__text 
+                      |часов в месяц
+                  .rates__item 
+                    h2.rates__title
+                      |3-5
+                    p.rates__text 
+                      |человек в команде
+                .rates__container 
+                  .rates__price 
+                    .rates__left 
+                      |от
+                    .rates__num 
+                      |1600
+                    .rates__right 
+                      |₽/час
+                .rates__bottom 
+                  .rates__description 
+                    |первые 10 часов — 600₽/час
+              .rates__card
+                .rates__icon 
+                  +rates-3-svg.rates__svg
+                .rates__tariff 
+                  .rates__item 
+                    h2.rates__title
+                      |500+
+                    p.rates__text 
+                      |часов в месяц
+                  .rates__item 
+                    h2.rates__title
+                      |6
+                    p.rates__text 
+                      |человек в команде
+                .rates__container 
+                  .rates__price 
+                    .rates__left 
+                      |от
+                    .rates__num 
+                      |1500
+                    .rates__right 
+                      |₽/час
+                .rates__bottom 
+                  .rates__description 
+                    |первые 10 часов — 700₽/час
+  section.section
+    .container 
+      .row 
+        .row__col
+          .label 
+            |[вопросы]
+        .row__col
+          .title 
+            |faq
+      .section__block 
+        .row
+          .row__col
+          .row__col
+            .faq 
+              ul.faq__list
+                each item in ddata.faq
+                  li.faq__item
+                    .faq__accordion(data-faq__accordion)
+                      .faq__head(data-accordion-button='')
+                        .faq__title 
+                          |#{item}
+                        .faq__icon
+                          +plus-svg.faq__svg 
+                      .faq__body(data-accordion-dropdown='')
+                        .faq__text 
+                          |У нас работает 40+ специалистов
+  section.section
+    .container
+      .row 
+        .row__col
+          .label 
+            |[процесс]
+        .row__col
+          .title 
+            |как это работает?
+      .section__block 
+        .row
+          .row__col
+          .row__col
+            .process
+  section.section.section--bot 
+    .container 
+      .row 
+        .row__col
+          .label 
+            |[портфоило]
+        .row__col
+          .title 
+            |отзывы и клиенты
+      .section__block
+        .reviews
+      .section__block
+        .slider

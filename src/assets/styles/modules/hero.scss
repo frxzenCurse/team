@@ -1,0 +1,54 @@
+.hero {
+
+  &__inner {
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__title {
+    color: var(--color-secondary);
+    @include fsl(20px, 124%);
+    @media (min-width: $breakpoint) {
+      @include fsl(43px, 110%);
+    }
+  }
+
+  &__italic {
+    font-style: italic;
+  }
+
+  &__button {
+    display: flex;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 0;
+  }
+
+  &__img {
+    display: block;
+
+    border-radius: 3px;
+    @media (min-width: $breakpoint) {
+      border-radius: 10px;
+    }
+  }
+
+  &__svg {
+    position: absolute;
+    right: 16px;
+    @media (min-width: $breakpoint) {
+      right: 32px;
+    }
+    top: 0;
+    transform: translateY(-50%);
+    
+    @media (max-width: ($breakpoint - 1px)) {
+      width: 77px;
+      height: 98px;
+    }
+  }
+}

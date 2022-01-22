@@ -1,0 +1,20 @@
+.button {
+  padding: 11px 18px;
+  @media (min-width: $breakpoint) {
+    padding: 20px 34px;
+  }
+
+  display: block;
+
+  @include f-main;
+  background: var(--color-secondary);
+  transition: $transition;
+  border: none;
+  border-radius: 80px;
+  @include fsl(14px, 140%);
+  @media (min-width: $breakpoint) {
+    border-radius: 65px;
+    @include fsl(16px, 140%);
+  }
+  cursor: pointer;
+}

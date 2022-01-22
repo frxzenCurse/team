@@ -38,6 +38,17 @@ ol {
   list-style: none;
 }
 
+h1, h2, h3, h4, h5 {
+  font-weight: 400;
+}
+
+h2 {
+  @include fsl(20px, 120%);
+  @media (min-width: $breakpoint) {
+    @include fsl(30px);
+  }
+}
+
 a {
   color: var(--color-primary);
   text-decoration: none;

@@ -1,0 +1,80 @@
+.form {
+  $comp: &;
+
+  &--light {
+
+  }
+
+  &__item {
+    display: block;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+      @media (min-width: $breakpoint) {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  &__label {
+    color: var(--color-secondary);
+    @include fsl(12px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(14px, 140%);
+    }
+  }
+
+  &__input {
+    padding: 6px 0;
+    @media (min-width: $breakpoint) {
+      padding: 12px 0;
+    }
+
+    width: 100%;
+
+    color: var(--color-secondary);
+    @include f-main;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--color-gray);
+    @include fsl(12px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(14px);
+    }
+  }
+
+  &__textarea {
+    padding: 6px 0;
+    @media (min-width: $breakpoint) {
+      padding: 12px 0;
+    }
+
+    width: 100%;
+    min-height: 60px;
+    @media (min-width: $breakpoint) {
+      min-height: 100px;
+    }
+
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--color-gray);
+    color: var(--color-secondary);
+    resize: none;
+    @include f-main;
+    @include fsl(12px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(14px);
+    }
+  }
+
+  &__inner {
+    margin-top: 20px;
+    @media (min-width: $breakpoint) {
+      margin-top: 41px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

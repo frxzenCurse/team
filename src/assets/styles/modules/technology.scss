@@ -1,0 +1,95 @@
+.technology {
+  margin-top: 24px;
+  @media (min-width: $breakpoint) {
+    margin-top: 0;
+  }
+
+  &__grid {
+    display: grid;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 8 - #{$col-gap-d});
+
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: calc(#{$col-gap-d});
+    }
+  }
+
+  &__item {
+    padding: 12px 0;
+    @media (min-width: $breakpoint) {
+      padding: 20px 0;
+    }
+
+    border-top: 1px solid var(--color-gray);
+    border-bottom: 1px solid var(--color-gray);
+
+    &:not(:first-child) {
+      margin-top: -1px;
+    }
+
+    &:nth-child(2) {
+      @media (max-width: ($breakpoint - 1px)) {
+        grid-row: 4;
+      }
+    }
+    &:nth-child(4) {
+      @media (max-width: ($breakpoint - 1px)) {
+        grid-row: 5;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    @media (min-width: $breakpoint) {
+      height: 100%;
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+      width: calc(#{$col-part-m});
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-width-d});
+      }
+    }
+    &:nth-child(2) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-width-d} * 4 - #{$col-gap-d});
+      }
+    }
+  }
+
+  &__num {
+    color: var(--color-secondary);
+    opacity: 0.5;
+    @include fsl(12px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(14px);
+    }
+  }
+
+  &__title {
+    margin-bottom: 4px;
+
+    color: var(--color-secondary);
+  }
+
+  &__text {
+
+    max-width: 208px;
+    @media (min-width: $breakpoint) {
+      max-width: 213px;
+    }
+
+    color: var(--color-secondary);
+    @include fsl(12px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(14px, 140%);
+    }
+  }
+}

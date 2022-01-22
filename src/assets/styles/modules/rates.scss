@@ -1,0 +1,153 @@
+.rates {
+  $comp: &;
+
+  display: grid;
+  row-gap: 8px;
+  @media (min-width: $breakpoint) {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: calc(#{$col-gap-d});
+  }
+
+  &__card {
+    padding: 20px;
+    @media (min-width: $breakpoint) {
+      padding: 32px 32px 20px;
+    }
+
+    background: var(--color-cards);
+    border-radius: 10px;
+
+    &--light {
+      background: var(--color-bg);
+
+      #{$comp}__title {
+        color: var(--color-primary);
+      }
+      #{$comp}__text {
+        color: var(--color-primary);
+      }
+      #{$comp}__description {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &__icon {
+    margin-bottom: 56px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 70px;
+    }
+    display: flex;
+  }
+
+  &__svg {
+    @media (max-width: ($breakpoint - 1px)) {
+      // height: 24px;
+      transform-origin: left center;
+    transform: scale(0.8);
+    }
+  }
+
+  &__tariff {
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 32px;
+    }
+
+    display: flex;
+  }
+
+  &__item {
+
+    &:not(:first-child) {
+      margin-left: 24px;
+      @media (min-width: $breakpoint) {
+        margin-left: 32px;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 4px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 2px;
+    }
+
+    color: var(--color-secondary);
+  }
+
+  &__text {
+    color: var(--color-secondary);
+    @include fsl(12px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(14px);
+    }
+  }
+
+  &__container {
+    padding: 8px 0;
+    @media (min-width: $breakpoint) {
+      padding: 16px 0;
+    }
+
+    border-radius: 10px;
+    background: var(--color-secondary);
+  }
+
+  &__price {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__left {
+    margin-right: 6px;
+    margin-top: 5px;
+    @media (min-width: $breakpoint) {
+      margin-top: 10px;
+      margin-right: 8px;
+    }
+    @include fsl(12px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(16px);
+    }
+  }
+
+  &__num {
+    @include fsl(44px, 120%);
+    @media (min-width: $breakpoint) {
+      @include fsl(68px);
+    }
+  }
+
+  &__right {
+    margin-left: 2px;
+    margin-bottom: 5px;
+    @media (min-width: $breakpoint) {
+      margin-left: 4px;
+      margin-bottom: 10px;
+    }
+
+    display: flex;
+    align-items: flex-end;
+
+    @include fsl(12px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(16px);
+    }
+  }
+
+  &__bottom {
+    margin-top: 16px;
+    @media (min-width: $breakpoint) {
+      margin-top: 20px;
+    }
+  }
+
+  &__description {
+    color: var(--color-secondary);
+    @include fsl(12px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(14px);
+    }
+  }
+}

@@ -1,0 +1,51 @@
+.specialization {
+  margin-left: calc(#{$col-part-m});
+  @media (min-width: $breakpoint) {
+    margin-left: 0;
+  }
+
+  &__row {
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+  }
+
+  &__col {
+    @media (min-width: $breakpoint) {
+      padding-right: calc(#{$col-gap-d});
+
+      flex-shrink: 0;
+      width: calc(#{$col-part-d} * 3);
+    }
+
+    &:not(:first-child) {
+      margin-top: 6px;
+      @media (min-width: $breakpoint) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__item {
+    @include fsl(16px, 130%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px, 120%);
+    }
+
+    &:not(:first-child) {
+      margin-top: 6px;
+      @media (min-width: $breakpoint) {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &__bot {
+    @media (min-width: $breakpoint) {
+      margin-right: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+      
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

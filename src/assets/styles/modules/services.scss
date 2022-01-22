@@ -1,0 +1,38 @@
+.services {
+
+  &__grid {
+    display: grid;
+    row-gap: 16px;
+    @media (min-width: $breakpoint) {
+      row-gap: 60px;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: calc(#{$col-gap-d});
+      width: calc(#{$col-part-d} * 9 - #{$col-gap-d});
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__icon {
+    margin-right: 20px;
+
+    display: flex;
+  }
+
+  &__svg {
+    @media (min-width: $breakpoint) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__text {
+    color: var(--color-secondary);
+    @include fsl(14px, 130%);
+    @media (min-width: $breakpoint) {
+      @include fsl(20px, 130%);
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.features {
+  display: grid;
+  row-gap: 8px;
+  @media (min-width: $breakpoint) {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: calc(#{$col-gap-d});
+  }
+
+  &__item {
+    min-height: 164px;
+    @media (min-width: $breakpoint) {
+      min-height: 320px;
+    }
+
+    background: rgba(#BDE4E7, 0.5);
+    border-radius: 10px;
+  }
+
+  &__container {
+    padding: 20px;
+    @media (min-width: $breakpoint) {
+      padding: 32px 32px 20px;
+    }
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__svg {
+    @media (max-width: ($breakpoint - 1px)) {
+      transform-origin: right center;
+      transform: scale(0.6666);
+    }
+  }
+
+  &__title {
+    margin-bottom: 4px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__text {
+    max-width: 204px;
+    @media (min-width: $breakpoint) {
+      max-width: 238px;
+    }
+
+    @include fsl(12px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(14px);
+    }
+  }
+}

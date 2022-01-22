@@ -4,6 +4,12 @@
     align-items: flex-end;
   }
 
+  &--default {
+    @media (min-width: $breakpoint) {
+      align-items: flex-start;
+    }
+  }
+
   &__col {
     @media (min-width: $breakpoint) {
       flex-shrink: 0;

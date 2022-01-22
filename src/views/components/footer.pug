@@ -10,46 +10,48 @@ mixin footer
             .title.title--light
               |контакты
         .section__block 
-          .row__col 
-            .footer__corp.footer__corp--desktop
-              a.footer__corp-link(href="#") 
-                |© команда 2021
-          .row__col
-            .footer__row 
-              .footer__col
-                .footer__item 
-                  h3.footer__title
-                    |ООО «Аймедиа Солюшнс»
-                  .footer__text 
-                    |129110, г. Москва, проспект Мира, дом 70, офис 66
-                .footer__item 
-                  h3.footer__title
-                    |Контакты
-                  a.footer__text(href="tel:8 958 581-50-84") 
-                    |8 958 581-50-84
-                  a.footer__text(href="mailto:info@mediasolutions.ru") 
-                    |info@mediasolutions.ru
-              .footer__col
-                form.form(action="/")
-                  each item in ['Имя', 'E-mail', 'Телефон']
+          .row
+            .row__col 
+              .footer__corp.footer__corp--desktop
+                a.footer__corp-link(href="#") 
+                  |© команда 2021
+            .row__col
+              .footer__row 
+                .footer__col
+                  .footer__item 
+                    h3.footer__title
+                      |ООО «Аймедиа Солюшнс»
+                    .footer__text 
+                      |129110, г. Москва, проспект Мира, дом 70, офис 66
+                  .footer__item 
+                    h3.footer__title
+                      |Контакты
+                    a.footer__text.footer__link(href="tel:8 958 581-50-84") 
+                      |8 958 581-50-84
+                    a.footer__text.footer__link(href="mailto:info@mediasolutions.ru") 
+                      |info@mediasolutions.ru
+                .footer__col
+                  form.form(action="/")
+                    each item in ['Имя', 'E-mail', 'Телефон']
+                      label.form__item
+                        .form__label 
+                          |#{item}
+                        input.form__input(type="text") 
                     label.form__item
                       .form__label 
-                        |#{item}
-                      input.form__input(type="text") 
-                  label.form__item
-                    .form__label 
-                      |Сообщение
-                    textarea.form__textarea
-                  .form__inner 
-                    .checkbox
-                      label.checkbox__label
-                        .checkbox__box 
-                          |icon 
-                        .checkbox__text 
-                          |Я согласен на обработку личных данных в соответствии с #[a.checkbox__link(href="#") политикой конфиденциальности]
-                    .footer__bottom
-                      button.button
-                        |Отправить
-                      .footer__corp 
-                        a.footer__corp-link(href="#") 
-                          |© команда 2021
+                        |Сообщение
+                      textarea.form__textarea
+                    .form__inner 
+                      .checkbox.checkbox--mb
+                        label.checkbox__label
+                          input.checkbox__input(type="checkbox")
+                          .checkbox__box 
+                            +check-svg.checkbox__svg 
+                          .checkbox__text 
+                            |Я согласен на обработку личных данных в соответствии с #[a.checkbox__link(href="#") политикой конфиденциальности]
+                      .footer__bottom
+                        button.button
+                          |Отправить
+                        .footer__corp 
+                          a.footer__corp-link(href="#") 
+                            |© команда 2021

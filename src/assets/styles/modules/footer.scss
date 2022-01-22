@@ -1,0 +1,116 @@
+.footer {
+  padding-bottom: 60px;
+  @media (min-width: $breakpoint) {
+    padding-bottom: 80px;
+  }
+
+  background: var(--color-primary);
+
+  &__corp {
+    @media (min-width: $breakpoint) {
+      display: none;
+    }
+
+    &--desktop {
+      display: none;
+      @media (min-width: $breakpoint) {
+        display: flex;
+      }
+    }
+  }
+  
+  &__corp-link {
+    text-transform: uppercase;
+    @include f-alt;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    transition: $transition;
+    color: var(--color-secondary);
+    @include fsl(10px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(12px);
+    }
+  }
+
+  &__row {
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+  }
+
+  &__col {
+    @media (min-width: $breakpoint) {
+      flex-shrink: 0;
+    }
+
+    &:nth-child(1) {
+      @media (min-width: $breakpoint) {
+        margin-right: calc(#{$col-part-d});
+        width: calc(#{$col-part-d} * 2);
+      }
+    }
+    &:nth-child(2) {
+      margin-top: 60px;
+      @media (min-width: $breakpoint) {
+        margin-top: 0;
+
+        width: calc(#{$col-part-d} * 5 - #{$col-gap-d});
+      }
+    }
+  }
+
+  &__item {
+    
+    &:not(:first-child) {
+      margin-top: 24px;
+      @media (min-width: $breakpoint) {
+        margin-top: 60px;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 12px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 24px;
+    }
+
+    color: var(--color-secondary);
+    letter-spacing: 0.1em;
+    letter-spacing: -0.01em;
+    @include fsl(16px, 130%);
+    @media (min-width: $breakpoint) {
+      @include fsl(22px, 120%);
+    }
+  }
+
+  &__text {
+    color: var(--color-secondary);
+    @include fsl(12px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(14px, 140%);
+    }
+  }
+
+  &__link {
+    display: block;
+    transition: $transition;
+
+    &:not(:first-child) {
+      margin-top: 2px;
+      @media (min-width: $breakpoint) {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    @media (min-width: $breakpoint) {
+      display: block;
+    }
+  }
+}
