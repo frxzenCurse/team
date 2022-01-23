@@ -1,0 +1,168 @@
+.slider {
+  position: relative;
+  z-index: 0;
+
+  border-radius: 8px;
+  overflow: hidden;
+
+  &__slide {
+    --pad: 24px;
+    position: relative;
+
+    background: var(--color-primary);
+
+    &::before {
+      content: none;
+      @media (min-width: $breakpoint) {
+        content: '«';
+      }
+      position: absolute;
+      bottom: var(--pad);
+      left: var(--pad);
+
+      color: var(--color-secondary);
+      @include fsl(24px, 120%);
+    }
+    &::after {
+      content: none;
+      @media (min-width: $breakpoint) {
+        content: '«';
+      }
+      position: absolute;
+      right: var(--pad);
+      top: var(--pad);
+
+      color: var(--color-secondary);
+      @include fsl(24px, 120%);
+      transform: rotate(-180deg);
+    }
+  }
+
+  &__container {
+    padding: 64px 16px 16px;
+    @media (min-width: $breakpoint) {
+      padding: 109px calc(#{$col-part-d}) 25px calc(#{$col-part-d} * 2);
+    }
+
+    min-height: 390px;
+    @media (min-width: $breakpoint) {
+      min-height: 502px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+  }
+
+  &__content {
+    margin-bottom: 20px;
+  }
+
+  &__name {
+    margin-bottom: 12px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 24px;
+    }
+    @include f-alt;
+    font-weight: 500;
+    color: var(--color-secondary);
+    @include fsl(14px, 140%);
+    @media (min-width: $breakpoint) {
+      @include fsl(16px);
+    }
+  }
+
+  &__text {
+    color: var(--color-secondary);
+    @include fsl(18px, 124%);
+    @media (min-width: $breakpoint) {
+      @include fsl(40px, 120%);
+      letter-spacing: -0.01em ;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+    @media (min-width: $breakpoint) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__progress {
+    --pad: 16px;
+    @media (min-width: $breakpoint) {
+      --pad: 23px;
+    }
+    position: absolute;
+    z-index: 2;
+    left: var(--pad);
+    top: var(--pad);
+
+    color: var(--color-secondary);
+    @media (min-width: $breakpoint) {
+      @include fsl(16px, 140%);
+    }
+  }
+}
+
+.slider-buttons {
+  $comp: &;
+  --size: 44px;
+  @media (min-width: $breakpoint) {
+    --size: 74px; 
+  }
+  position: absolute;
+  z-index: 2;
+  left: 16px;
+  bottom: 16px;
+  @media (min-width: $breakpoint) {
+    bottom: 50%;
+    transform: translateY(50%);
+    left: 24px;
+    right: 24px;
+  }
+
+  display: flex;
+  @media (min-width: $breakpoint) {
+    justify-content: space-between;
+  }
+
+  &__item {
+
+    &:not(:first-child) {
+      margin-left: 12px;
+      @media (min-width: $breakpoint) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__button {
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: none;
+    background: var(--color-secondary);
+    transition: background $transition;
+    cursor: pointer;
+
+    &--right {
+      #{$comp}__icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__icon {
+    @media (max-width: ($breakpoint - 1px)) {
+      width: 15px;
+      height: 6px;
+    }
+  }
+}

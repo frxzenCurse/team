@@ -1,0 +1,40 @@
+mixin menu
+  .menu(data-fancy-modal='menu')
+    .menu__container 
+      ul.menu__list 
+        each item in ['О нас', 'Компетенции', 'Стоимость', 'Команда', 'FAQ', 'Процесс', 'Отзывы и клиенты',]
+          li.menu__item
+            a.menu__link(href="#")
+              |#{item}
+      .menu__phone 
+        a.menu__phone-link(href="tel:8 958 581-50-84")
+          |8 958 581-50-84
+      .menu__button 
+        .button.button--dark(data-fancy-button='discuss')
+          |Обсудить проект
+    
+mixin discuss 
+  .discuss(data-fancy-modal='discuss')
+    .discuss__container
+      h2.discuss__title
+        |Обсудить проект
+      form.form.form--light(action="/")
+        each item in ['Имя', 'E-mail', 'Телефон']
+          label.form__item
+            .form__label 
+              |#{item}
+            input.form__input(type="text") 
+        label.form__item
+          .form__label 
+            |Сообщение
+          textarea.form__textarea
+        .form__inner 
+          .checkbox.checkbox--dark.checkbox--mb
+            label.checkbox__label
+              input.checkbox__input(type="checkbox")
+              .checkbox__box 
+                +check-svg.checkbox__svg 
+              .checkbox__text 
+                |Я согласен на обработку личных данных в соответствии с #[a.checkbox__link(href="#") политикой конфиденциальности]
+          button.button.button--dark  
+            |Отправить

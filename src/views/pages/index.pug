@@ -1,5 +1,6 @@
 extends ../layouts/master.pug
 
+include ../components/modals
 
 block content 
   -
@@ -41,7 +42,11 @@ block content
         first: ['Красота и здоровье', 'Банки и финансы', 'E-commerce', 'Одежда и мода', 'Еда'],
         second: ['Стартапы', 'Сервисы', 'Дизайн системы', 'Админки и дэшборды', 'Еда'],
       },
-      faq: ['Сколько человек работает в вашей компании?', 'На каких языках возможно общение с командой?', 'Предоставляете ли гарантию на свою работу?', 'Какой график работы команды?', 'Предоставляется ли подменный специалист на случайболезни или отпуска?']
+      faq: ['Сколько человек работает в вашей компании?', 'На каких языках возможно общение с командой?', 'Предоставляете ли гарантию на свою работу?', 'Какой график работы команды?', 'Предоставляется ли подменный специалист на случайболезни или отпуска?'],
+      reviews: {
+        first: ['huawei', 'google','redbull', 'tesla','coca-cola'],
+        second: ['gazprom', 'shell','cisco', 'uber','ups']
+      }
     }
   section.section.section--first.section--black 
     .container 
@@ -278,14 +283,14 @@ block content
               ul.faq__list
                 each item in ddata.faq
                   li.faq__item
-                    .faq__accordion(data-faq__accordion)
+                    .faq__accordion(data-accordion='')
                       .faq__head(data-accordion-button='')
-                        .faq__title 
+                        h2.faq__title 
                           |#{item}
                         .faq__icon
-                          +plus-svg.faq__svg 
+                          +accordion-plus-svg.faq__svg 
                       .faq__body(data-accordion-dropdown='')
-                        .faq__text 
+                        p.faq__text 
                           |У нас работает 40+ специалистов
   section.section
     .container
@@ -301,16 +306,87 @@ block content
           .row__col
           .row__col
             .process
+              ul.process__list 
+                li.process__item 
+                  .process__col
+                    .process__icon
+                      +process-1-svg.process__svg
+                  .process__col
+                    h2.process__title 
+                      |{Договор}
+                    p.process__text 
+                      |Мы с вами заключаем договор, в котором указываем стоимость часа команды
+                li.process__item 
+                  .process__col
+                    .process__icon
+                      +process-2-svg.process__svg
+                  .process__col
+                    h2.process__title 
+                      |{Старт}
+                    p.process__text 
+                      |Первые 10 часов, в зависимости от общей выработки за месяц, идут по значительно сниженной стоимости
+                li.process__item 
+                  .process__col
+                    .process__icon
+                      +process-3-svg.process__svg
+                  .process__col
+                    h2.process__title 
+                      |{Процесс}
+                    p.process__text 
+                      |Работать мы можем как на вашем, так и на нашем сервере
+                li.process__item 
+                  .process__col
+                    .process__icon
+                      +process-4-svg.process__svg
+                  .process__col
+                    h2.process__title 
+                      |{Отчет}
+                    p.process__text 
+                      |В конце месяца мы составляем отчет, в котором указываем фактически отработанное командой время
   section.section.section--bot 
     .container 
       .row 
         .row__col
-          .label 
+          .label  
             |[портфоило]
         .row__col
           .title 
             |отзывы и клиенты
       .section__block
         .reviews
+          .reviews__container
+            each item in ddata.reviews.first
+              .reviews__item 
+                img.reviews__img(src=`assets/images/${item}.png`, alt="")
+          .reviews__container
+            each item in ddata.reviews.second
+              .reviews__item 
+                img.reviews__img(src=`assets/images/${item}.png`, alt="")
       .section__block
         .slider
+          .slider-buttons
+            .slider-buttons__item   
+              button.slider-buttons__button(data-slider-button = '2')
+                +arrow-svg.slider-buttons__icon
+            .slider-buttons__item  
+              button.slider-buttons__button.slider-buttons__button--right(data-slider-button = '3')
+                +arrow-svg.slider-buttons__icon
+          .slider__progress 
+            |#[span.slider__current 1] / #[span.slider__length]
+          .swiper-container.swiper-container--slide-width-auto.swiper-container--slide-height-max(data-slider-id='1' data-slider-prev='2' data-slider-next='3')
+            .swiper-wrapper 
+              - for (i = 0; i < 7; i++)
+                .swiper-slide 
+                  .slider__slide 
+                    .slider__container
+                      .slider__content
+                        .slider__name 
+                          |[    И. С. Тарасов    ]
+                        p.slider__text
+                          |IT-отдел компании «Мэлон Фэшн Груп» благодарит коллег за плодотворное сотрудничество в области мобильной (iOS и Android) и Bitrix разработки.
+                      .slider__button 
+                        a.button.button--slider(href="#") 
+                          |Читать полностью
+  
+  +menu
+  +discuss

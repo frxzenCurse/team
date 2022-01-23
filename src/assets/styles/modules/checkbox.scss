@@ -8,6 +8,30 @@
     }
   }
 
+  &--dark {
+
+    #{$comp}__input {
+      &:checked {
+        ~#{$comp}__box {
+          background: var(--color-bg);
+          border-color: var(--color-bg);
+        }
+      }
+    }
+
+    #{$comp}__box {
+      border-color: var(--color-bg);
+    }
+
+    #{$comp}__text {
+      color: var(--color-primary);
+    }
+
+    #{$comp}__link {
+      color: var(--color-primary);
+    }
+  }
+
   &__label {
     position: relative;
     z-index: 0;

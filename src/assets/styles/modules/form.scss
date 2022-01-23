@@ -2,7 +2,19 @@
   $comp: &;
 
   &--light {
+    #{$comp}__label {
+      color: var(--color-primary);
+    }
 
+    #{$comp}__input {
+      color: var(--color-primary);
+      border-color: var(--color-bg);
+    }
+
+    #{$comp}__textarea {
+      color: var(--color-primary);
+      border-color: var(--color-bg);
+    }
   }
 
   &__item {

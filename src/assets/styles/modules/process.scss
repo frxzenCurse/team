@@ -1,0 +1,144 @@
+.process {
+
+
+  &__list {
+    @media (min-width: $breakpoint) {
+      display: flex;
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    display: flex;
+    @media (min-width: $breakpoint) {
+      display: block;
+      width: calc(#{$col-part-d} * 2);
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 40px;
+
+      @media (min-width: $breakpoint) {
+        padding-bottom: 0;
+      }
+    }
+
+    &::after {
+      --size: 12px;
+      content: "";
+      position: absolute;
+      left: calc(#{$col-part-m} - 6px);
+      top: 28px;
+      @media (min-width: $breakpoint) {
+        top: calc(200px - 6px);
+        left: 0;
+      }
+
+      width: var(--size);
+      height: var(--size);
+
+      background: var(--color-bg);
+      border-radius: 50%;
+    }
+
+    &:last-child::after {
+      top: 28px;
+      @media (min-width: $breakpoint) {
+        top: calc(200px - 6px);
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(#{$col-part-m});
+      @media (min-width: $breakpoint) {
+        left: 0;
+        right: 0;
+        bottom: auto;
+        top: 200px;
+      }
+
+      width: 1px;
+      @media (min-width: $breakpoint) {
+        width: auto;
+        height: 1px;
+      }
+
+      background: var(--color-bg);
+    }
+
+    &:first-child::before {
+
+      top: 28px;
+      @media (min-width: $breakpoint) {
+        top: 200px;
+      }
+    }
+
+    &:last-child::before {
+      top: 0;
+      height: 30px;
+      @media (min-width: $breakpoint) {
+        content: none;
+      }
+    }
+  }
+
+  &__col {
+    flex-shrink: 0;
+
+    &:nth-child(1) {
+      width: calc(#{$col-part-m});
+      @media (min-width: $breakpoint) {
+        margin-bottom: 108px;
+        width: auto;
+      }
+    }
+    &:nth-child(2) {
+      padding-left: 30px;
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      @media (min-width: $breakpoint) {
+        padding-left: 0;
+        width: auto;
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__svg {
+    @media (max-width: ($breakpoint - 1px)) {
+      width: 67px;
+      height: 83px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 4px;
+
+    @media (min-width: $breakpoint) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__text {
+    max-width: 210px;
+    @media (min-width: $breakpoint) {
+      max-width: calc(#{$col-part-d} * 2 - #{$col-gap-d});
+    }
+
+    @include fsl(12px, 140%);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(14px);
+    }
+  }
+}

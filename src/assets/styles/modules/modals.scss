@@ -1,0 +1,111 @@
+.menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: calc(#{$col-part-m} + #{$col-pad-m});
+
+  height: 100%;
+  display: none;
+
+  background: var(--color-secondary);
+
+  &__container {
+    padding: 88px 16px 20px;
+
+    overflow-y: scroll;
+    @include scrollbar-hidden;
+  }
+
+  &__item {
+    display: flex;
+
+    &:not(:first-child) {
+      margin-top: 8px;
+    }
+  }
+
+  &__phone {
+    margin: 24px 0 28px;
+  }
+  &__phone-link {
+    transition: color $transition;
+  }
+
+  &__button {
+    display: flex;
+  }
+}
+
+.discuss {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 16px;
+  @media (min-width: $breakpoint) {
+    left: auto;
+
+    width: calc(#{$col-part-d} * 6 - #{$col-gap-d} + #{$col-pad-d});
+  }
+
+  height: 100%;
+  display: none;
+
+  background: var(--color-secondary);
+
+  &__container {
+    padding: 60px 14px 30px;
+    @media (min-width: $breakpoint) {
+      padding: 120px 64px 60px calc(#{$col-width-d});
+    }
+
+    overflow-y: scroll;
+    @include scrollbar-hidden;
+  }
+
+  &__title {
+    margin-bottom: 28px;
+    @media (min-width: $breakpoint) {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.fancybox-slide--html .fancybox-close-small {
+  --size: 25px;
+  --pad: 16px;
+  @media (min-width: $breakpoint) {
+    --size: 40px;
+    --pad: 32px;
+  }
+
+  top: var(--pad);
+  right: var(--pad);
+  padding: 0;
+
+  width: var(--size);
+  height: var(--size);
+
+  // background: $color-darken-white;
+  border-radius: 4px;
+}
+
+.fancybox-slide.fancybox-slide--html {
+  padding-top: 80px;
+
+  @media (max-width: ($breakpoint - 1px)) {
+    padding-top: 16px;
+  }
+}
+
+/* Custom animation slide-in-out */
+.fancybox-fx-slide-in-out.fancybox-slide--previous {
+  transform: translateX(100%);
+}
+
+.fancybox-fx-slide-in-out.fancybox-slide--next {
+  transform: translateX(100%);
+}
+
+.fancybox-fx-slide-in-out.fancybox-slide--current {
+  transform: translateX(0);
+}
