@@ -159,9 +159,16 @@
     border-radius: var(--border-rad);
     color: var(--color-secondary);
     cursor: pointer;
+    transition: $transition;
 
     @media (max-width: ($breakpoint)) {
       @include fsl(14px, 140%);
+    }
+
+    &:hover {
+      border-color: var(--color-secondary);
+      background: var(--color-secondary);
+      color: var(--color-primary);
     }
   }
 

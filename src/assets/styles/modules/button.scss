@@ -18,6 +18,10 @@
   }
   cursor: pointer;
 
+  &:hover {
+    background: var(--color-hover);
+  }
+
   &--slider {
     padding: 7px 14px;
     @media (min-width: $breakpoint) {
@@ -26,10 +30,19 @@
     border: 1px solid var(--color-secondary);
     color: var(--color-secondary);
     background: none;
+
+    &:hover {
+      background: var(--color-secondary);
+      color: var(--color-primary);
+    }
   }
 
   &--dark {
     background: var(--color-primary);
     color: var(--color-secondary);
+
+    &:hover {
+      background: rgba(#0E1010, 0.7);
+    }
   }
 }

@@ -152,6 +152,10 @@
     transition: background $transition;
     cursor: pointer;
 
+    &:hover {
+      background: var(--color-hover);
+    }
+
     &--right {
       #{$comp}__icon {
         transform: rotate(180deg);

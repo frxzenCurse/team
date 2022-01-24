@@ -39,6 +39,18 @@
     display: flex;
 
     cursor: pointer;
+
+    &.parsley-error {
+      #{$comp}__box {
+        border-color: var(--color-red);
+      }
+      // #{$comp}__text {
+      //   color: var(--color-red);
+      // }
+      // #{$comp}__link {
+      //   color: var(--color-red);
+      // }
+    }
   }
 
   &__input {
@@ -94,11 +106,16 @@
     @media (min-width: $breakpoint) {
       @include fsl(12px);
     }
+    transition: color $transition;
   }
 
   &__link {
     color: var(--color-secondary);
     text-decoration: underline;
-    transition: $transition;
+    transition: color $transition;
+  }
+
+  .parsley-errors-list {
+    display: none;
   }
 }

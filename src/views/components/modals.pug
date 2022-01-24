@@ -20,18 +20,18 @@ mixin discuss
         |Обсудить проект
       form.form.form--light(action="/")
         each item in ['Имя', 'E-mail', 'Телефон']
-          label.form__item
+          label.form__item(data-parsley-parent='')
             .form__label 
               |#{item}
-            input.form__input(type="text") 
-        label.form__item
+            input.form__input(type="text" required) 
+        label.form__item(data-parsley-parent='')
           .form__label 
             |Сообщение
-          textarea.form__textarea
+          textarea.form__textarea(required)
         .form__inner 
           .checkbox.checkbox--dark.checkbox--mb
-            label.checkbox__label
-              input.checkbox__input(type="checkbox")
+            label.checkbox__label(data-parsley-parent='')
+              input.checkbox__input(type="checkbox" id='checkbox1' required)
               .checkbox__box 
                 +check-svg.checkbox__svg 
               .checkbox__text 
